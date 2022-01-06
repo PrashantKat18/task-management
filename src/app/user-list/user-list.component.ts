@@ -13,7 +13,7 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.getUserList();
   }
-
+//  FOR GET USER LIST
   getUserList(){
     this.crudservice.getUserList().subscribe((result:any)=>{
        if(result.status == "success"){

@@ -21,6 +21,7 @@ export class TasklistComponent implements OnInit {
   taskForm: FormGroup;
   update: boolean = false;
   taskid:any;
+  searchText:string=""
   constructor(private crudService: CrudService, public fb: FormBuilder, private toastr: ToastrService) {
     this.taskForm = this.fb.group({
       message: [''],
@@ -33,6 +34,16 @@ export class TasklistComponent implements OnInit {
   ngOnInit() {
     this.getTaskList();
   }
+
+  // search(){
+  //   if(this.assigned_name == ""){
+  //     this.getTaskList();
+  //   } else {
+  //     this.taskList = this.taskList.filter((res: any) =>{
+  //       return res.assigned_name.toLowerCase().match(this.assigned_name.toLowerCase())
+  //     })
+  //   }
+  // }
 
   // TASK LIST
   getTaskList() {
@@ -122,6 +133,7 @@ export class TasklistComponent implements OnInit {
     this.taskid = task
     this.deleteDisplayStyle = "block";
   }
+  
   // DELETE TASK
   deleteTask() {
     const payLoad = new FormData();
